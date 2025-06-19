@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Top 5 Love Movies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d63384;
+    }
+
+    .movie-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .movie {
+      background-color: #ffe4ec;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .movie img {
+      width: 150px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .movie-details {
+      padding: 15px;
+    }
+
+    .movie h2 {
+      margin: 0 0 10px;
+      color: #c2185b;
+    }
+
+    .movie p {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    @media (max-width: 600px) {
+      .movie {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .movie img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💖 Top 5 Love Movies</h1>
+
+  <div class="movie-list">
+
+    <div class="movie">
+      <img src="https://upload.wikimedia.org/wikipedia/en/8/86/Posternotebook.jpg" alt="The Notebook">
+      <div class="movie-details">
+        <h2>1. The Notebook (2004)</h2>
+        <p>A timeless story of young love, separation, and lifelong devotion.</p>
+      </div>
+    </div>
+
+    <div class="movie">
+      <img src="https://upload.wikimedia.org/wikipedia/en/2/22/Titanic_poster.jpg" alt="Titanic">
+      <div class="movie-details">
+        <h2>2. Titanic (1997)</h2>
+        <p>An epic romance that blossoms aboard the ill-fated RMS Titanic.</p>
+      </div>
+    </div>
+
+    <div class="movie">
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png" alt="La La Land">
+      <div class="movie-details">
+        <h2>3. La La Land (2016)</h2>
+        <p>A musical love story between a jazz musician and an aspiring actress.</p>
+      </div>
+    </div>
+
+    <div class="movie">
+      <img src="https://upload.wikimedia.org/wikipedia/en/d/dc/A_Walk_to_Remember_Poster.jpg" alt="A Walk to Remember">
+      <div class="movie-details">
+        <h2>4. A Walk to Remember (2002)</h2>
+        <p>A heartwarming romance between a rebellious teen and a kind-hearted girl.</p>
+      </div>
+    </div>
+
+    <div class="movie">
+      <img src="https://upload.wikimedia.org/wikipedia/en/d/da/Before_Sunrise_poster.jpg" alt="Before Sunrise">
+      <div class="movie-details">
+        <h2>5. Before Sunrise (1995)</h2>
+        <p>Two strangers form a deep connection during one magical night in Vienna.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
