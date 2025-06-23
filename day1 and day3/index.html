@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stone Paper Scissors - Simultaneous Mode</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 30px;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    .game-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .player {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+
+    .player h2 {
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .btn {
+      background: linear-gradient(145deg, #1e1e1e, #2e2e2e);
+      border: none;
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 1.5em;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    #result {
+      margin-top: 40px;
+      font-size: 2em;
+      text-shadow: 1px 1px 5px black;
+    }
+
+    @media (max-width: 768px) {
+      .game-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🪨 📄 ✂️ Stone Paper Scissors</h1>
+
+  <div class="game-container">
+    <div class="player">
+      <h2>Player 1</h2>
+      <div class="buttons">
+        <button class="btn" onclick="makeChoice(1, 'rock')">🪨</button>
+        <button class="btn" onclick="makeChoice(1, 'paper')">📄</button>
+        <button class="btn" onclick="makeChoice(1, 'scissors')">✂️</button>
+      </div>
+    </div>
+
+    <div class="player">
+      <h2>Player 2</h2>
+      <div class="buttons">
+        <button class="btn" onclick="makeChoice(2, 'rock')">🪨</button>
+        <button class="btn" onclick="makeChoice(2, 'paper')">📄</button>
+        <button class="btn" onclick="makeChoice(2, 'scissors')">✂️</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    let choices = {
+      1: null,
+      2: null
+    };
+
+    function makeChoice(player, choice) {
+      choices[player] = choice;
+      checkResult();
+    }
+
+    function checkResult() {
+      if (choices[1] && choices[2]) {
+        const p1 = choices[1];
+        const p2 = choices[2];
+
+        let resultText = `Player 1 chose ${emoji(p1)}, Player 2 chose ${emoji(p2)} → `;
+
+        if (p1 === p2) {
+          resultText += "It's a Draw!";
+        } else if (
+          (p1 === 'rock' && p2 === 'scissors') ||
+          (p1 === 'paper' && p2 === 'rock') ||
+          (p1 === 'scissors' && p2 === 'paper')
+        ) {
+          resultText += "Player 1 Wins!";
+        } else {
+          resultText += "Player 2 Wins!";
+        }
+
+        document.getElementById('result').textContent = resultText;
+
+        // Reset choices after 2 seconds
+        setTimeout(() => {
+          choices[1] = null;
+          choices[2] = null;
+          document.getElementById('result').textContent = '';
+        }, 2500);
+      }
+    }
+
+    function emoji(choice) {
+      return choice === 'rock' ? '🪨' :
+             choice === 'paper' ? '📄' : '✂️';
+    }
+  </script>
+
+</body>
+</html>
